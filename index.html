@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tech Goals</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <header>
+        <h1 data-testid="slackDisplayName">Ajibise Kehinde</h1>
+    </header>
+    <main>
+        <div class="profile">
+            <img src="assets/avatar.jpg" alt="Profile Picture" data-testid="slackProfilePicture">
+            <p data-testid="slackEmail">Email: ajibskenny@gmail.com</p>
+            <p data-testid="currentTimeUTC">Current Time in UTC: <span id="utcTime"></span></p>
+            <p data-testid="currentDay">Current Day: <span id="currentDay"></span></p>
+        </div>
+        <div class="goals">
+            <h2>My Tech Goals for the Next 2 Years</h2>
+            <p>As an upcoming full-stack developer and frontend engineer, I have set several goals for myself over the
+                next two years. These goals are designed to help me perfect my craft, learn new technologies, and become
+                a flexible developer capable of working on a variety of projects within well-established organizations.
+                Here’s what I’m aiming for:</p>
+            <h3>1. Master Core Technologies</h3>
+            <p>I aim to gain in-depth knowledge of HTML, CSS, and JavaScript, as well as achieve proficiency in React
+                for frontend development and Node.js with Express for backend development. To do this, I will complete
+                advanced tutorials, build projects, and contribute to open-source projects.</p>
+
+            <h3>2. Learn and Implement New Technologies</h3>
+            <p>It’s crucial to stay updated with modern web technologies like TypeScript, GraphQL, and WebAssembly. I
+                also plan to explore frameworks and libraries such as Next.js, Redux, and Tailwind CSS by participating
+                in courses, implementing them in projects, and following tech blogs.</p>
+
+            <h3>3. Improve Full-Stack Development Skills</h3>
+            <p>I will focus on understanding and applying database management with MongoDB and SQL, learning about
+                serverless architecture, and developing scalable applications using cloud platforms like AWS, Azure, or
+                Google Cloud.</p>
+
+            <h3>4. Focus on Responsive and Accessible Design</h3>
+            <p>Ensuring all web projects are fully responsive and accessible is a top priority. I plan to follow
+                responsive web design tutorials, test projects for accessibility, and stay updated with accessibility
+                guidelines and tools.</p>
+
+            <h3>5. Contribute to and Learn from the Developer Community</h3>
+            <p>Being an active member of coding communities and forums is essential. I’ll participate in communities
+                like GitHub and Stack Overflow, share knowledge through blogs or YouTube, and network with other
+                developers for mentorship opportunities.</p>
+
+            <h3>6. Gain Practical Experience Through Internships and Projects</h3>
+            <p>I aim to gain real-world experience by working on internships and projects within well-established
+                organizations. This involves applying for internships, collaborating with other developers, and seeking
+                continuous feedback for improvement.</p>
+
+            <h3>7. Diversify My Project Portfolio</h3>
+            <p>Working on a variety of projects across different niches like e-commerce, fintech, and healthcare will
+                help me develop a versatile portfolio. Each project will showcase unique skills or technologies to
+                demonstrate my flexibility and expertise.</p>
+        </div>
+    </main>
+    <footer>
+        <a href="https://hng.tech/learn" data-testid="hngLink">HNG Learn</a>
+        <a href="https://keyword.dog" data-testid="keywordLink">Keyword Dog</a>
+        <a href="https://scrapeanyweb.site" data-testid="scrapeanywebLink">Scrape Any Web</a>
+    </footer>
+    <script>
+        function updateTimeAndDay() {
+            const now = new Date();
+            const utcTime = new Date(now.getTime() + (1 * 60 * 60 * 1000)); // Add 1 hour to UTC for Nigeria time
+            const nigeriaTime = utcTime.toUTCString().split(' ')[4];
+            const currentDay = now.toLocaleString('en-US', { weekday: 'long' });
+
+            document.getElementById('utcTime').textContent = nigeriaTime;
+            document.getElementById('currentDay').textContent = currentDay;
+        }
+
+        updateTimeAndDay();
+        setInterval(updateTimeAndDay, 1000); // Update every second
+    </script>
+</body>
+
+</html>
